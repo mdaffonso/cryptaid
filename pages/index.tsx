@@ -73,8 +73,8 @@ const Home: NextPage = () => {
               { config[Color.Red] && <Player color="#4a0000" pro={config.pro} /> }
               { config[Color.Blue] && <Player color="#102a3c" pro={config.pro} /> }
               { config[Color.Green] && <Player color="#102e10" pro={config.pro} /> }
-              { config[Color.Brown] && <Player color="#300d2c" pro={config.pro} /> }
-              { config[Color.Purple] && <Player color="#36290e" pro={config.pro} /> }
+              { config[Color.Purple] && <Player color="#300d2c" pro={config.pro} /> }
+              { config[Color.Brown] && <Player color="#36290e" pro={config.pro} /> }
             </div>
       }
     </>
