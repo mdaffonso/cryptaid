@@ -1,0 +1,53 @@
+.InputGroup {
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.InputGroup > :checked + label {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.InputGroup > input {
+  opacity: 0;
+  transform: scale(0);
+  width: 0;
+  height: 0;
+}
+
+.InputGroup > label {
+  padding-left: 1.5rem;
+  margin: 0;
+  display: block;
+  position: relative;
+}
+
+.InputGroup > label::before {
+  --s: 0.75rem;
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  width: var(--s);
+  height: var(--s);
+  background: white;
+  border-radius: 0.125rem;
+}
+
+.InputGroup > label::after {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 0.15rem;
+  width: 0.3rem;
+  height: 0.15rem;
+  border: none;
+  border-left: 0.15rem solid black;
+  border-bottom: 0.15rem solid black;
+  transform: rotate(-45deg) scale(0);
+  transition: 75ms transform linear;
+}
+
+.InputGroup > :checked + label::after {
+  transform: rotate(-45deg) scale(1);
+}

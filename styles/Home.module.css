@@ -1,121 +1,117 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.Main {
+  color: white;
+  background: black;
   height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 95vw);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
 }
 
-.main {
-  padding: 5rem 0;
-  flex: 1;
+.Main > div {
+  scroll-snap-align: center;
+}
+
+.Setup {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background: black;
+  color: white;
+  justify-content: space-between;
 }
 
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
+.Setup > div {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+.Setup > h2 {
   text-align: center;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+.Setup > button {
+  background: #4e5c00;
+  color: white;
+  border: none;
+  padding: 2rem 4rem;
+  font-size: 1.4rem;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
+.ProMode {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+  flex-direction: row !important;
+  margin: 2rem auto;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
+.ProMode > input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.ProMode > :not(:checked) + label {
+  opacity: 0.5;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.ProMode > label {
+  display: block;
+  padding: 1.25rem;
+  padding-left: 3rem;
+  position: relative;
+  border-radius: inherit;
+  margin-left: -0.5rem;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.ProMode > label::before {
+  --s: 1rem;
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 1rem;
+  width: var(--s);
+  height: var(--s);
+  background: white;
+  border-radius: 0.25rem;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.ProMode > label::after {
+  content: "";
+  position: absolute;
+  top: 1.55rem;
+  left: 1.3rem;
+  width: 0.3rem;
+  height: 0.15rem;
+  border: none;
+  border-left: 0.15rem solid black;
+  border-bottom: 0.15rem solid black;
+  transform: rotate(-45deg) scale(0);
+  transition: 75ms transform linear;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+.ProMode > :checked + label::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+@media (min-width: 750px) {
+  .Main {
+    display: flex;
+    flex-direction: row;
+    overflow-x: unset;
+    overflow-y: unset;
+    scroll-snap-type: unset;
+  }
+
+  .Setup {
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .Setup > div {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5rem;
   }
 }

@@ -1,0 +1,76 @@
+.PlayerSelector {
+  display: flex;
+  margin: 0.25rem auto;
+  border-radius: 0.5rem;
+}
+
+.PlayerSelector > .RED {
+  background: #4a0000;
+}
+
+.PlayerSelector > .BLUE {
+  background: #102a3c;
+}
+
+.PlayerSelector > .GREEN {
+  background: #102e10;
+}
+
+.PlayerSelector > .BROWN {
+  background: #36290e;
+}
+
+.PlayerSelector > .PURPLE {
+  background: #300d2c;
+}
+
+.PlayerSelector > input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.PlayerSelector > :not(:checked) + label {
+  background: grey;
+  opacity: 0.5;
+}
+
+.PlayerSelector > label {
+  display: block;
+  padding: 1.25rem;
+  padding-left: 3rem;
+  position: relative;
+  border-radius: inherit;
+  margin-left: -0.5rem;
+}
+
+.PlayerSelector > label::before {
+  --s: 1rem;
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 1rem;
+  width: var(--s);
+  height: var(--s);
+  background: white;
+  border-radius: 0.25rem;
+}
+
+.PlayerSelector > label::after {
+  content: "";
+  position: absolute;
+  top: 1.55rem;
+  left: 1.3rem;
+  width: 0.3rem;
+  height: 0.15rem;
+  border: none;
+  border-left: 0.15rem solid black;
+  border-bottom: 0.15rem solid black;
+  transform: rotate(-45deg) scale(0);
+  transition: 75ms transform linear;
+}
+
+.PlayerSelector > :checked + label::after {
+  transform: rotate(-45deg) scale(1);
+}
