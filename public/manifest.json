@@ -1,0 +1,17 @@
+{
+  "name": "Cryptaid | Auxílio eletrônico para o jogo Cryptid",
+  "short_name": "Cryptaid",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "325x325",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

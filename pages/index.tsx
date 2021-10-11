@@ -14,9 +14,9 @@ const Home: NextPage = () => {
   const players: any[] = [
     [Color.Red, "Vermelho", "#4a0000"],
     [Color.Blue, "Azul", "#102a3c"],
-    [Color.Brown, "Marrom", "#300d2c"],
+    [Color.Brown, "Marrom", "#36290e"],
     [Color.Green, "Verde", "#102e10"],
-    [Color.Purple, "Roxo", "#36290e"]
+    [Color.Purple, "Roxo", "#300d2c"]
   ]
 
   const toggleOption = (option: string) => {
@@ -70,11 +70,11 @@ const Home: NextPage = () => {
               <button onClick={start}>Iniciar</button>
             </div>
           : <div className={styles.Main}>
-              { config[Color.Red] && <Player color="#4a0000" pro={config.pro} /> }
-              { config[Color.Blue] && <Player color="#102a3c" pro={config.pro} /> }
-              { config[Color.Green] && <Player color="#102e10" pro={config.pro} /> }
-              { config[Color.Purple] && <Player color="#300d2c" pro={config.pro} /> }
-              { config[Color.Brown] && <Player color="#36290e" pro={config.pro} /> }
+              {
+                players.map(v => (
+                  config.hasOwnProperty(v[0]) && <Player color={v[2]} pro={config.pro} key={v[1]} />
+                ))
+              }
             </div>
       }
     </>
