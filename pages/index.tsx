@@ -7,6 +7,7 @@ import { PlayerSelector } from '../components/PlayerSelector'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "../styles/Home.module.css"
+import Head from 'next/head'
 
 const Home: NextPage = () => {
   const [setup, setSetup] = useState(true)
@@ -46,6 +47,10 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Cryptaid | Auxílio eletrônico para o jogo Cryptid</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       {
         setup
           ? <div className={styles.Setup}>
@@ -72,6 +77,7 @@ const Home: NextPage = () => {
                   config.hasOwnProperty(v[0]) && <Player color={v[2]} pro={config.pro} key={v[1]} />
                 ))
               }
+              <button className={styles.Replay} onClick={() => location.reload()}>Jogar novamente</button>
             </div>
       }
     </>

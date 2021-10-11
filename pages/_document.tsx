@@ -9,8 +9,6 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/favicon.png" />
           <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
           <meta name="theme-color" content="#000000" />
-          <title>Cryptaid | Auxílio eletrônico para o jogo Cryptid</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <body>
           <Main />
