@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
-import Head from "next/head"
 import { useState } from 'react'
 import { Color } from '../components/ColorEnum'
 import { ConfigType } from '../components/ConfigType'
 import { Player } from '../components/Player'
 import { PlayerSelector } from '../components/PlayerSelector'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
   const start = () => {
     const configWithoutPro = Object.keys(config).filter(v => v !== "pro")
     if (configWithoutPro.length < 2) {
-      alert("No mínimo 2 jogadores devem ser selecionados")
+      toast("No mínimo 2 jogadores devem ser selecionados")
       return
     }
 
@@ -45,11 +46,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Cryptaid | Auxílio eletrônico para o jogo Cryptid</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-      </Head>
       {
         setup
           ? <div className={styles.Setup}>
@@ -68,6 +64,7 @@ const Home: NextPage = () => {
               </div>
 
               <button onClick={start}>Iniciar</button>
+              <ToastContainer />
             </div>
           : <div className={styles.Main}>
               {
