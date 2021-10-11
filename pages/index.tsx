@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   const [setup, setSetup] = useState(true)
   const [config, setConfig] = useState<ConfigType>({})
 
-  const players: any[] = [
+  const players: [Color, string, string][] = [
     [Color.Red, "Vermelho", "#4a0000"],
     [Color.Blue, "Azul", "#102a3c"],
     [Color.Brown, "Marrom", "#36290e"],
